@@ -6,7 +6,8 @@ bash interactive pipe
 
 **contents**
 
-[goal](#goal)
+- [goal](#goal)
+- [functional spec](#functional-spec)
 
 # goal
 make an interactive bash process that allows the user to experiment operations on stdin.
@@ -21,9 +22,12 @@ make an interactive bash process that allows the user to experiment operations o
        * receives as stdin the original stdin,
        * outputs to stdout in sub-process,
        * stays active, and goes to stage 4.;
-    5. if the user presses Ctrl+A, the stdout of the next command will be redirected to all further ones;
-    6. if the user presses Ctrl+B, the stdin to go to further commands is the one previous to last Ctrl+A;
+    
 * further requiring that:
-  * every environment variable on the parent process should be available within the module's sub-process;
-  * 
+    * every environment variable on the parent process should be available within the module's sub-process;
+    * if the user presses Ctrl+A, the stdout of the next command will be redirected to all further ones;
+    * if the user presses Ctrl+B, it undoes the previous Ctrl+A command;
+    * the user must be able to redirect to a file
+
+
 
